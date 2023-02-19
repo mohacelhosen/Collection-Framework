@@ -1,8 +1,11 @@
+import java.util.Objects;
+
 public class Student {
     private String name;
     private int id;
     private float CGPA;
     private String department;
+
 
     public Student(String name, int id, float CGPA, String department){
         this.name = name;
@@ -52,4 +55,17 @@ public class Student {
                 ", department=" + department +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj==this){
+            return true;
+        } else if (obj instanceof  Student){
+            Student std = (Student) obj;
+            if (name.equals(std.name) && (id== std.id) && (CGPA==std.CGPA) && (department.equals(std.department)) ){
+                return true;
+            }else return false;
+        }else return false;
+    }
+
 }
